@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECHO AI Assistant — Web chat</title>
+  <meta name="description" content="Ask ECHO AI Assistant online — PubMed and prior Project ECHO evidence, without Zoom." />
+  <link rel="icon" href="assets/echo-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0;400;0;700;1;400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+</head>
+<body class="chat-page">
+  <a class="skip" href="#chat-main">Skip to chat</a>
+
+  <header class="site-nav is-solid" data-nav>
+    <a class="nav-brand" href="./" aria-label="ECHO AI home">
+      <img src="assets/project-echo-logo.png" alt="Project ECHO" class="nav-logo" />
+      <span class="nav-product">AI Assistant</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="./#how">How it works</a>
+      <a href="./#proof">Evidence</a>
+      <a href="./chat.html" aria-current="page">Web chat</a>
+    </nav>
+    <span class="status-pill" id="statusPill" data-state="checking">Checking AI…</span>
+  </header>
+
+  <main id="chat-main" class="chat-shell">
+    <aside class="chat-intro">
+      <img src="assets/project-echo-logo.png" alt="Project ECHO" class="chat-intro-logo" />
+      <h1>Ask ECHO online</h1>
+      <p>
+        Same educational pipeline as the Zoom bot — hybrid PubMed + prior ECHO retrieval —
+        without joining a meeting. Answers include a non-advice disclaimer.
+      </p>
+      <ul>
+        <li>Literature / guidelines questions</li>
+        <li>Prior Project ECHO session recall</li>
+        <li>Concept explanations for tele-mentoring</li>
+      </ul>
+      <p class="chat-disclaimer">
+        Educational use only — not diagnosis, prescribing, or a medical record.
+      </p>
+      <div class="suggest-grid" id="suggestions">
+        <button type="button" data-q="What does the literature say about buprenorphine retention in office-based treatment?">Buprenorphine retention</button>
+        <button type="button" data-q="Summarize evidence on treating chronic pain in patients on MOUD.">Pain + MOUD evidence</button>
+        <button type="button" data-q="What is Project ECHO and how does tele-mentoring work for primary care teams?">What is Project ECHO?</button>
+      </div>
+    </aside>
+
+    <section class="chat-panel" aria-label="Conversation">
+      <div class="chat-log" id="chatLog" role="log" aria-live="polite"></div>
+      <form class="chat-form" id="chatForm">
+        <label class="sr-only" for="question">Your question</label>
+        <textarea
+          id="question"
+          name="question"
+          rows="2"
+          maxlength="2000"
+          placeholder="Ask a clinical education question…"
+          required
+        ></textarea>
+        <button type="submit" id="sendBtn" class="btn btn-primary">Ask ECHO</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/chat.js"></script>
+</body>
+</html>

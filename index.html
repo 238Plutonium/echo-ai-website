@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECHO AI Assistant — In-Meeting Help for Project ECHO</title>
+  <meta name="description" content="ECHO AI Assistant joins live Project ECHO Zoom sessions, sees shared slides, hears discussion, and answers with PubMed and prior-session evidence. Built at Penn State ICDS." />
+  <link rel="icon" href="assets/echo-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0;400;0;700;1;400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-nav" data-nav>
+    <a class="nav-brand" href="#top" aria-label="ECHO AI home">
+      <img src="assets/project-echo-logo.png" alt="Project ECHO" class="nav-logo" />
+      <span class="nav-product">AI Assistant</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#capabilities">In the meeting</a>
+      <a href="#proof">Evidence</a>
+      <a href="chat.html">Web chat</a>
+      <a href="#demo">Demo</a>
+    </nav>
+    <a class="nav-cta" href="chat.html">Try web chat</a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/echo-slide.jpg" alt="" class="hero-bg" />
+        <div class="hero-veil"></div>
+      </div>
+
+      <div class="hero-content">
+        <img
+          class="hero-mark"
+          src="assets/project-echo-logo.png"
+          alt="Project ECHO"
+          width="420"
+          height="140"
+        />
+        <p class="hero-product">ECHO AI Assistant</p>
+        <h1>Evidence-grounded help inside the live tele-mentoring session.</h1>
+        <p class="hero-lede">
+          Joins Zoom as a visible participant. Sees shared slides, hears discussion via RTMS,
+          and answers with PubMed plus prior Project ECHO transcripts—without leaving the meeting.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="chat.html">Try ECHO online</a>
+          <a class="btn btn-ghost" href="https://psu.mediaspace.kaltura.com/media/t/1_0syzr0gf" target="_blank" rel="noopener">Watch Zoom demo</a>
+        </div>
+        <p class="hero-meta">Penn State ICDS · Project ECHO collaboration · MIT open source</p>
+      </div>
+    </section>
+
+    <section class="section how" id="how">
+      <div class="section-inner">
+        <p class="eyebrow">Pipeline</p>
+        <h2>From live Zoom media to a citable chat reply.</h2>
+        <p class="section-lede">
+          The assistant is admitted from the waiting room, ingests Real-Time Media Streams,
+          routes intent, and formats educational answers with an explicit non-advice disclaimer.
+        </p>
+
+        <ol class="pipeline">
+          <li class="reveal">
+            <span class="step">01</span>
+            <h3>Live join</h3>
+            <p>Web-client bot for private DMs and public <code>@ECHO AI Assistant</code> mentions.</p>
+          </li>
+          <li class="reveal">
+            <span class="step">02</span>
+            <h3>RTMS ingest</h3>
+            <p>Streaming audio and deskshare JPEGs with uniqueness filtering (~1 FPS).</p>
+          </li>
+          <li class="reveal">
+            <span class="step">03</span>
+            <h3>Multimodal models</h3>
+            <p>Whisper ASR · Qwen2.5-VL-3B for slides · Qwen3-4B-Instruct for answer formatting.</p>
+          </li>
+          <li class="reveal">
+            <span class="step">04</span>
+            <h3>Hybrid RAG</h3>
+            <p>BM25 + BGE-M3 over PubMed and 3,310 prior ECHO chunks, with citation whitelisting.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="capabilities">
+      <div class="section-inner split">
+        <div class="copy reveal">
+          <p class="eyebrow">In the meeting</p>
+          <h2>What clinicians can ask without leaving Zoom.</h2>
+          <ul class="feature-list">
+            <li><strong>What’s on this slide?</strong> Vision–language grounding on the shared deskshare.</li>
+            <li><strong>Summarize so far</strong> — late joiners catch up from streaming ASR context.</li>
+            <li><strong>PubMed literature</strong> — concept-sanitized queries with provenance-compliant PMIDs.</li>
+            <li><strong>Prior ECHO sessions</strong> — longitudinal private RAG over de-identified transcripts.</li>
+            <li><strong>Voice wake</strong> — “Hi Echo AI …” with energy gating and cooldown anti-spam.</li>
+            <li><strong>Post-session minutes</strong> — transcript, sampled slides, Q&amp;A, and summary package.</li>
+          </ul>
+        </div>
+        <figure class="demo-shot reveal">
+          <img
+            src="assets/demo-interface.png"
+            alt="Shared opioid pain management slide beside Zoom chat replies from ECHO AI Assistant"
+            width="1200"
+            height="700"
+            loading="lazy"
+          />
+          <figcaption>
+            Live demo interface from the September 2026 Project ECHO / ICDS session:
+            clinical slide + in-meeting chat answers.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section proof" id="proof">
+      <div class="section-inner">
+        <p class="eyebrow">Evaluation</p>
+        <h2>Measured on real deployments and a formative stakeholder demo.</h2>
+        <p class="section-lede">
+          Operational logs across 55 meeting streams, plus anonymous survey feedback from
+          Project ECHO staff after the mock opioid-use-disorder case.
+        </p>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <p class="stat-value" data-count="419">0</p>
+            <p class="stat-label">Answered QA events</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat-value"><span data-count="6">0</span><span class="unit">s</span></p>
+            <p class="stat-label">Mean pipeline latency</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat-value"><span data-count="69">0</span><span class="unit">%</span></p>
+            <p class="stat-label">Slide frame coverage</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat-value"><span data-count="416" data-decimals="2">0</span></p>
+            <p class="stat-label">Survey mean / 5 <span class="hint">n = 4 ECHO staff</span></p>
+          </div>
+        </div>
+
+        <div class="proof-note reveal">
+          <p>
+            Highest-rated survey items: appeal, ease of use, and ask clarity (each 4.50).
+            Lowest: non-disruption of live discussion (3.25) and voice-wake recognition (3.33)—
+            matching facilitator requests for brevity budgets and invocation governance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo" id="demo">
+      <div class="section-inner">
+        <p class="eyebrow">Artifacts</p>
+        <h2>Watch the session. Read the paper. Clone the stack.</h2>
+        <p class="section-lede">
+          Full Penn State MediaSpace archive of the September 10, 2026 demonstration,
+          ACL-style system demo paper, and MIT-licensed repository.
+        </p>
+
+        <div class="artifact-row">
+          <a class="artifact reveal" href="chat.html">
+            <span class="artifact-badge">CHAT</span>
+            <div>
+              <strong>Online ECHO web assistant</strong>
+              <span>Ask without Zoom — PubMed + prior ECHO RAG</span>
+            </div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="artifact reveal" href="https://psu.mediaspace.kaltura.com/media/t/1_0syzr0gf" target="_blank" rel="noopener">
+            <img src="assets/project-echo-logo.png" alt="" class="artifact-mark" />
+            <div>
+              <strong>Live demo recording</strong>
+              <span>Kaltura MediaSpace · case walkthrough + panel feedback</span>
+            </div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="artifact reveal" href="assets/ECHO_AI_Demo_Paper.pdf">
+            <span class="artifact-badge">PDF</span>
+            <div>
+              <strong>System demonstration paper</strong>
+              <span>Architecture, 419-event logs, survey Likert means</span>
+            </div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="artifact reveal" href="https://github.com/238Plutonium/echo-zoom-bot" target="_blank" rel="noopener">
+            <span class="artifact-badge">MIT</span>
+            <div>
+              <strong>echo-zoom-bot on GitHub</strong>
+              <span>Node orchestration · local ASR / VLM / answer LLM</span>
+            </div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/project-echo-logo.png" alt="Project ECHO" class="footer-logo" />
+        <div>
+          <strong>ECHO AI Assistant</strong>
+          <p>
+            Multimodal in-meeting assistant for Project ECHO–style clinical tele-education.
+            Developed with Penn State ICDS and Project ECHO collaborators.
+          </p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/238Plutonium/echo-zoom-bot" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://psu.mediaspace.kaltura.com/media/t/1_0syzr0gf" target="_blank" rel="noopener">Demo video</a>
+        <a href="assets/ECHO_AI_Demo_Paper.pdf">Demo paper</a>
+      </div>
+      <p class="footer-note">
+        Educational tele-mentoring only — not diagnosis, prescribing, or documentation in the legal medical record.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
